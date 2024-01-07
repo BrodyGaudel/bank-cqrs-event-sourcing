@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Clean and Install') {
             steps{
-                bat 'mvn clean install'
+                bat 'mvn clean install -DskipTests'
             }
         }
         stage('Test') {
@@ -24,17 +24,17 @@ pipeline {
         }
         stage('Nexus Deploy') {
             steps {
-                bat 'mvn deploy -P maven-releases'
+                bat 'mvn deploy -P maven-releases -DskipTests'
             }
         }
-        stage('Docker Image'){
+        stage('Docker Build Image'){
             steps{
-                bat 'docker build -t bank-image:1.0 .'
+                bat 'docker build -t bank-image:1.1 .'
             }
         }
-        stage('Docker Container'){
+        stage('Docker Push Image'){
             steps{
-                bat 'docker run -p 8787:8787 --env-file "C:/Users/brody/Documents/workspace/env.txt" --name bank-container --network bank-network bank-image:1.0'
+                bat 'docker push mounanga/bank-image:1.1'
             }
         }
     }
