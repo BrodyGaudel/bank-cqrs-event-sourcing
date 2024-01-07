@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Docker Push Image'){
             steps{
-                bat 'docker push mounanga/bank-image:1.1'
+                bat 'docker push bank-image:1.1'
             }
         }
     }
