@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Docker Push Image'){
             steps{
-                bat 'docker push bank-image:1.1'
+                bat 'docker tag bank-image:1.1 bank-image:1.1'
             }
         }
     }
