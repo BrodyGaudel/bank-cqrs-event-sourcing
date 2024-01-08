@@ -53,6 +53,14 @@ Welcome to the Banking and Operations Management Application, a comprehensive so
 
 - **MySQL:**
     - The chosen relational database for storing customer and bank account information.
+- **CICD:**
+    - Jenkins
+    - Maven
+    - SonarQube
+    - Nexus
+    - Docker
+    - Kubernetes
+  
 
 ## Getting Started
 
@@ -81,6 +89,29 @@ Welcome to the Banking and Operations Management Application, a comprehensive so
     - Ensure that Axon Server is running and configure the connection details in `application.properties`.
     - You can download Axon Server here: `https://developer.axoniq.io/download`.
     - You will find documentation on Axon Framework and Axon Server here: `https://docs.axoniq.io/reference-guide/axon-framework/introduction`.
+
+## Illustration
+
+- **Jenkins:**
+    - ![CICD Jenkins](illustration/Jenkins.png)
+    - ![CICD Jenkins](illustration/Jenkins2.png)
+  
+- **Nexus Repository:**
+    - ![CICD Nexus](illustration/Nexus.png)
+    - ![CICD Nexus](illustration/Nexus2.png)
+
+- **Docker**
+    - ![CICD Docker](illustration/Docker.png)
+    - ![CICD Docker](illustration/Docker2.png)
+
+- **Axon Server**
+  - ![CICD Docker](illustration/AxonServer.png)
+  - ![CICD Docker](illustration/AxonServer2.png)
+
+- **Swagger UI:**
+  - ![Swagger UI](illustration/Swagger-UI.png)
+  - ![Event Store](illustration/EventStore.png)
+  
 
 ## Documentation
 
