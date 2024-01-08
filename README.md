@@ -54,12 +54,12 @@ Welcome to the Banking and Operations Management Application, a comprehensive so
 - **MySQL:**
     - The chosen relational database for storing customer and bank account information.
 - **CICD:**
-    - Jenkins
-    - Maven
-    - SonarQube
-    - Nexus
-    - Docker
-    - Kubernetes
+    - Jenkins : Jenkins is an open-source automation server for continuous integration and continuous delivery, streamlining the software development process.
+    - Maven : It is a build automation and project management tool that simplifies the build process, manages dependencies, and facilitates project documentation in Java-based applications.
+    - SonarQube : It is a platform for continuous inspection of code quality, providing static code analysis to identify and fix code vulnerabilities and maintain code health.
+    - Nexus : It is a repository manager that simplifies the management of binary artifacts, supporting build and deployment automation in software development.
+    - Docker : It is a platform for developing, shipping, and running applications in containers, enabling consistent and efficient deployment across diverse environments.
+    - Kubernetes : It is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications, ensuring efficient and resilient container orchestration.
   
 
 ## Getting Started
