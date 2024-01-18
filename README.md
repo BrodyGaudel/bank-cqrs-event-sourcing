@@ -115,7 +115,7 @@ Welcome to the Banking and Operations Management Application, a comprehensive so
 
 ## Documentation
 
-For detailed information on API endpoints and usage, refer to the [API Documentation](docs/API_DOCUMENTATION.md).
+For detailed information on API endpoints and usage, refer to the `https://brodygaudel.github.io/java-documentation-app-cqrs-event-sourcing/`.
 
 ## Contributing
 
