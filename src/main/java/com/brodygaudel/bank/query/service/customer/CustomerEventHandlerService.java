@@ -13,6 +13,9 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Service class for handling customer-related events, such as creation, update, and deletion.
+ */
 @Service
 @Transactional
 @Slf4j
@@ -20,10 +23,20 @@ public class CustomerEventHandlerService {
 
     private final CustomerRepository customerRepository;
 
+    /**
+     * Constructs a {@code CustomerEventHandlerService} with the specified {@code CustomerRepository}.
+     *
+     * @param customerRepository The repository for managing customer data.
+     */
     public CustomerEventHandlerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
+    /**
+     * Handles the {@code CustomerCreatedEvent} by creating a new customer entity and saving it to the repository.
+     *
+     * @param event The {@code CustomerCreatedEvent} to handle.
+     */
     @EventHandler
     public void on(@NotNull CustomerCreatedEvent event){
         log.info("CustomerCreatedEvent handled");
@@ -44,6 +57,11 @@ public class CustomerEventHandlerService {
         log.info("customer created at :"+customerCreated.getCreation());
     }
 
+    /**
+     * Handles the {@code CustomerUpdatedEvent} by updating an existing customer entity in the repository.
+     *
+     * @param event The {@code CustomerUpdatedEvent} to handle.
+     */
     @EventHandler
     public void on(@NotNull CustomerUpdatedEvent event) {
         log.info("CustomerUpdatedEvent handled");
@@ -56,13 +74,17 @@ public class CustomerEventHandlerService {
         log.info("customer updated at :"+customerUpdated.getLastUpdate());
     }
 
+    /**
+     * Handles the {@code CustomerDeletedEvent} by deleting an existing customer entity from the repository.
+     *
+     * @param event The {@code CustomerDeletedEvent} to handle.
+     */
     @EventHandler
     public void on(@NotNull CustomerDeletedEvent event) {
         log.info("CustomerDeletedEvent handled");
         customerRepository.deleteById(event.getId());
         log.info("customer deleted");
     }
-
 
     /**
      * Checks if a National Identity Card (NIC) already exists in the customer repository.
@@ -73,7 +95,7 @@ public class CustomerEventHandlerService {
     private void checkIfNicAlreadyExist(String nic){
         Boolean exist = customerRepository.checkIfNicExists(nic);
         if(Boolean.TRUE.equals(exist)){
-            throw new NicAlreadyExistException("national identity card '"+nic+"' already exist");
+            throw new NicAlreadyExistException("national identity card '"+nic+"' already exists");
         }
     }
 
@@ -106,3 +128,4 @@ public class CustomerEventHandlerService {
         customer.setLastUpdate(event.getLastUpdate());
     }
 }
+

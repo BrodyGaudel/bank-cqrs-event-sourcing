@@ -1,12 +1,12 @@
 package com.brodygaudel.bank.command.aggregate;
 
-import com.brodygaudel.bank.command.model.customer.CreateCustomerCommand;
-import com.brodygaudel.bank.command.model.customer.DeleteCustomerCommand;
-import com.brodygaudel.bank.command.model.customer.UpdateCustomerCommand;
+import com.brodygaudel.bank.common.command.customer.CreateCustomerCommand;
+import com.brodygaudel.bank.common.command.customer.DeleteCustomerCommand;
+import com.brodygaudel.bank.common.command.customer.UpdateCustomerCommand;
 import com.brodygaudel.bank.common.event.customer.CustomerCreatedEvent;
 import com.brodygaudel.bank.common.event.customer.CustomerDeletedEvent;
 import com.brodygaudel.bank.common.event.customer.CustomerUpdatedEvent;
-import com.brodygaudel.bank.query.enums.Sex;
+import com.brodygaudel.bank.common.enums.Sex;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.CommandHandler;
@@ -19,6 +19,14 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * Aggregate representing a customer in the system.
+ *
+ * <p>
+ * This aggregate captures the state changes of a customer, including creation, update, and deletion events.
+ * It applies the events and updates its internal state accordingly.
+ * </p>
+ */
 @Aggregate
 @Slf4j
 @Getter
@@ -36,14 +44,22 @@ public class CustomerAggregate {
     private LocalDateTime creation;
     private LocalDateTime lastUpdate;
 
+    /**
+     * Default constructor for the CustomerAggregate.
+     */
     public CustomerAggregate() {
         super();
     }
 
+    /**
+     * Constructor for handling the {@code CreateCustomerCommand} and applying the corresponding event.
+     *
+     * @param command The {@code CreateCustomerCommand} to handle.
+     */
     @CommandHandler
     public CustomerAggregate(@NotNull CreateCustomerCommand command) {
         log.info("CreateCustomerCommand received");
-        AggregateLifecycle.apply( new CustomerCreatedEvent(
+        AggregateLifecycle.apply(new CustomerCreatedEvent(
                 command.getId(),
                 command.getNic(),
                 command.getFirstname(),
@@ -56,8 +72,13 @@ public class CustomerAggregate {
         ));
     }
 
+    /**
+     * Event sourcing handler for the {@code CustomerCreatedEvent}.
+     *
+     * @param event The {@code CustomerCreatedEvent} to handle.
+     */
     @EventSourcingHandler
-    public void on(@NotNull CustomerCreatedEvent event){
+    public void on(@NotNull CustomerCreatedEvent event) {
         log.info("CustomerCreatedEvent sourced");
         this.customerId = event.getId();
         this.nic = event.getNic();
@@ -70,10 +91,15 @@ public class CustomerAggregate {
         this.creation = event.getCreation();
     }
 
+    /**
+     * Command handler for handling the {@code UpdateCustomerCommand} and applying the corresponding event.
+     *
+     * @param command The {@code UpdateCustomerCommand} to handle.
+     */
     @CommandHandler
-    public void handle(@NotNull UpdateCustomerCommand command){
+    public void handle(@NotNull UpdateCustomerCommand command) {
         log.info("UpdateCustomerCommand received");
-        AggregateLifecycle.apply( new CustomerUpdatedEvent(
+        AggregateLifecycle.apply(new CustomerUpdatedEvent(
                 command.getId(), command.getNic(),
                 command.getFirstname(), command.getName(),
                 command.getPlaceOfBirth(), command.getDateOfBirth(),
@@ -82,8 +108,13 @@ public class CustomerAggregate {
         ));
     }
 
+    /**
+     * Event sourcing handler for the {@code CustomerUpdatedEvent}.
+     *
+     * @param event The {@code CustomerUpdatedEvent} to handle.
+     */
     @EventSourcingHandler
-    public void on(@NotNull CustomerUpdatedEvent event){
+    public void on(@NotNull CustomerUpdatedEvent event) {
         log.info("CustomerUpdatedEvent sourced");
         this.customerId = event.getId();
         this.nic = event.getNic();
@@ -96,16 +127,25 @@ public class CustomerAggregate {
         this.sex = event.getSex();
     }
 
+    /**
+     * Command handler for handling the {@code DeleteCustomerCommand} and applying the corresponding event.
+     *
+     * @param command The {@code DeleteCustomerCommand} to handle.
+     */
     @CommandHandler
-    public void handle(@NotNull DeleteCustomerCommand command){
+    public void handle(@NotNull DeleteCustomerCommand command) {
         log.info("DeleteCustomerCommand received");
-        AggregateLifecycle.apply( new CustomerDeletedEvent(command.getId()));
+        AggregateLifecycle.apply(new CustomerDeletedEvent(command.getId()));
     }
 
+    /**
+     * Event sourcing handler for the {@code CustomerDeletedEvent}.
+     *
+     * @param event The {@code CustomerDeletedEvent} to handle.
+     */
     @EventSourcingHandler
-    public void on(@NotNull CustomerDeletedEvent event){
+    public void on(@NotNull CustomerDeletedEvent event) {
         log.info("CustomerDeletedEvent sourced");
-        //this.customerId = event.getId();
+        this.customerId = event.getId();
     }
-
 }

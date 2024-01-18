@@ -1,16 +1,16 @@
 package com.brodygaudel.bank.query.service.account;
 
-import com.brodygaudel.bank.query.dto.AccountResponseDTO;
-import com.brodygaudel.bank.query.dto.OperationResponseDTO;
+import com.brodygaudel.bank.common.dto.AccountResponseDTO;
+import com.brodygaudel.bank.common.dto.OperationResponseDTO;
+import com.brodygaudel.bank.common.query.*;
 import com.brodygaudel.bank.query.entity.Account;
 import com.brodygaudel.bank.query.entity.Customer;
 import com.brodygaudel.bank.query.entity.Operation;
-import com.brodygaudel.bank.query.enums.AccountStatus;
-import com.brodygaudel.bank.query.enums.OperationType;
-import com.brodygaudel.bank.query.model.*;
+import com.brodygaudel.bank.common.enums.AccountStatus;
+import com.brodygaudel.bank.common.enums.OperationType;
 import com.brodygaudel.bank.query.repository.AccountRepository;
 import com.brodygaudel.bank.query.repository.OperationRepository;
-import com.brodygaudel.bank.query.util.Mappers;
+import com.brodygaudel.bank.common.util.Mappers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,6 +1,6 @@
 package com.brodygaudel.bank.query.entity;
 
-import com.brodygaudel.bank.query.enums.AccountStatus;
+import com.brodygaudel.bank.common.enums.AccountStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

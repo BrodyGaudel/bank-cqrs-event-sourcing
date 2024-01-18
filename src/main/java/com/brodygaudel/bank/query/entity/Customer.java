@@ -1,6 +1,6 @@
 package com.brodygaudel.bank.query.entity;
 
-import com.brodygaudel.bank.query.enums.Sex;
+import com.brodygaudel.bank.common.enums.Sex;
 import jakarta.persistence.*;
 import lombok.*;
 

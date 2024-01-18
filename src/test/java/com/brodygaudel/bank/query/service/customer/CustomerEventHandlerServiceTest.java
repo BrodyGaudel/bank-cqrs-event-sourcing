@@ -4,7 +4,7 @@ import com.brodygaudel.bank.common.event.customer.CustomerCreatedEvent;
 import com.brodygaudel.bank.common.event.customer.CustomerDeletedEvent;
 import com.brodygaudel.bank.common.event.customer.CustomerUpdatedEvent;
 import com.brodygaudel.bank.query.entity.Customer;
-import com.brodygaudel.bank.query.enums.Sex;
+import com.brodygaudel.bank.common.enums.Sex;
 import com.brodygaudel.bank.query.repository.CustomerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

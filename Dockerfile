@@ -12,6 +12,7 @@ ENV MYSQL_HOST=localhost
 ENV MYSQL_PORT=3306
 ENV AXON_HOST=localhost
 ENV AXON_PORT=8124
+ENV ALLOWED_ORIGINS=http://localhost:4200
 
 # Copying your jar application into the container
 COPY target/bank-0.0.1.jar bank.jar
