@@ -61,6 +61,7 @@ public class CreateCustomerCommand extends BaseCommand<String> {
      */
     private final LocalDateTime creation;
 
+
     /**
      * Constructs a new instance of CreateCustomerCommand with the specified parameters.
      *
@@ -86,4 +87,5 @@ public class CreateCustomerCommand extends BaseCommand<String> {
         this.sex = sex;
         this.creation = creation;
     }
+
 }

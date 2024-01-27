@@ -52,9 +52,9 @@ public class CustomerAggregate {
     }
 
     /**
-     * Constructor for handling the {@code CreateCustomerCommand} and applying the corresponding event.
+     * Constructor for handling the {@link CreateCustomerCommand} and applying the corresponding event.
      *
-     * @param command The {@code CreateCustomerCommand} to handle.
+     * @param command The {@link CreateCustomerCommand} to handle.
      */
     @CommandHandler
     public CustomerAggregate(@NotNull CreateCustomerCommand command) {
@@ -73,9 +73,9 @@ public class CustomerAggregate {
     }
 
     /**
-     * Event sourcing handler for the {@code CustomerCreatedEvent}.
+     * Event sourcing handler for the {@link CustomerCreatedEvent}.
      *
-     * @param event The {@code CustomerCreatedEvent} to handle.
+     * @param event The {@link CustomerCreatedEvent} to handle.
      */
     @EventSourcingHandler
     public void on(@NotNull CustomerCreatedEvent event) {
@@ -92,9 +92,9 @@ public class CustomerAggregate {
     }
 
     /**
-     * Command handler for handling the {@code UpdateCustomerCommand} and applying the corresponding event.
+     * Command handler for handling the {@link UpdateCustomerCommand} and applying the corresponding event.
      *
-     * @param command The {@code UpdateCustomerCommand} to handle.
+     * @param command The {@link UpdateCustomerCommand} to handle.
      */
     @CommandHandler
     public void handle(@NotNull UpdateCustomerCommand command) {
@@ -109,9 +109,9 @@ public class CustomerAggregate {
     }
 
     /**
-     * Event sourcing handler for the {@code CustomerUpdatedEvent}.
+     * Event sourcing handler for the {@link CustomerUpdatedEvent}.
      *
-     * @param event The {@code CustomerUpdatedEvent} to handle.
+     * @param event The {@link CustomerUpdatedEvent} to handle.
      */
     @EventSourcingHandler
     public void on(@NotNull CustomerUpdatedEvent event) {
@@ -128,9 +128,9 @@ public class CustomerAggregate {
     }
 
     /**
-     * Command handler for handling the {@code DeleteCustomerCommand} and applying the corresponding event.
+     * Command handler for handling the {@link DeleteCustomerCommand} and applying the corresponding event.
      *
-     * @param command The {@code DeleteCustomerCommand} to handle.
+     * @param command The {@link DeleteCustomerCommand} to handle.
      */
     @CommandHandler
     public void handle(@NotNull DeleteCustomerCommand command) {
@@ -139,9 +139,9 @@ public class CustomerAggregate {
     }
 
     /**
-     * Event sourcing handler for the {@code CustomerDeletedEvent}.
+     * Event sourcing handler for the {@link CustomerDeletedEvent}.
      *
-     * @param event The {@code CustomerDeletedEvent} to handle.
+     * @param event The {@link CustomerDeletedEvent} to handle.
      */
     @EventSourcingHandler
     public void on(@NotNull CustomerDeletedEvent event) {

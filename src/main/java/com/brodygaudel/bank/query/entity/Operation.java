@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "bank.OPERATION")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
